@@ -276,10 +276,10 @@ export default class SwiperAnimated extends PureComponent {
 
       if (this.valueX > 0) {
         onRightSwipe(card);
-        this.advanceState(velocity, vy, true);
+        this.advanceState(velocity, vy, false);
       } else {
         onLeftSwipe(card);
-        this.advanceState(velocity, vy, false);
+        this.advanceState(velocity, vy, true);
       }
       onRemoveCard(this.currentIndex[this.guid]);
     } else {
@@ -495,7 +495,7 @@ export default class SwiperAnimated extends PureComponent {
         >
           <View
             style={[styles.dot, { backgroundColor: paginationDotColor || '#C5C5C5' },
-              index >= i ? { backgroundColor: paginationActiveDotColor || '#4D4D4E' } : null]}
+              index == i ? { backgroundColor: paginationActiveDotColor || '#4D4D4E' } : null]}
           />
         </RippleFeedback>,
       );
